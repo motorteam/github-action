@@ -4,5 +4,7 @@ runs:
   using: "composite"
   steps:
     - name: Install Motor
-      run: curl -sSfL install.motor.dev | sh
+      run: |
+        curl -sSfL install.motor.dev | sh -s -- --quiet
+        echo "$HOME/.motor/bin" >> $GITHUB_PATH
       shell: bash
